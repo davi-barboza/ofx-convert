@@ -1,0 +1,35 @@
+{
+  "name": "ofx-convert",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "deploy": "npm version patch && npm publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "ofx",
+    "extrato",
+    "ofx convert"
+  ],
+  "author": "davizera",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/parser": "^5.59.9",
+    "esbuild": "^0.17.19",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "rollup": "^3.24.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "typescript": "^5.1.3"
+  }
+}
