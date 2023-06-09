@@ -40,7 +40,9 @@ export function formatDate(date: string, format: string) {
 export function fixJsonProblems(content: string) {
   const result = content
     .replace(/(},})/g, '}}')
+    .replace(/("}")/g, '"}')
     .replace(/(}")/g, '},"')
+    .replace(/("{")/g, '{"')
     .replace(/(},])/g, '}]')
     .replace(/(,})/g, '}')
     .replace(/({")/g, '{\n"')

@@ -12,7 +12,7 @@ import {
   objectStartReplacer,
   trim
 } from './helpers';
-import { BankTransferList, OfxConfig, OFXMetaData, OfxResponse, OfxStructure } from './types';
+import { BankTransferList, OFXMetaData, OfxConfig, OfxResponse, OfxStructure } from './types';
 
 export class Ofx {
   private data: string = '';
@@ -91,7 +91,15 @@ export class Ofx {
   private configDate(dateString: string) {
     const { formatDate: format } = this.config;
     if (format) return formatDate(dateString, format);
-    return formatDate(dateString, 'y-M-d');
+    const dateResponse = JSON.stringify({
+      date: formatDate(dateString, 'yyyy-MM-dd'),
+      datetime: formatDate(dateString, 'yyyy-MM-dd hh:mm:ss'),
+      time: formatDate(dateString, 'hh:mm:ss'),
+      offset: formatDate(dateString, 'O'),
+      timezone: formatDate(dateString, 'TZ')
+    });
+
+    return dateResponse;
   }
 
   getTransactionsSummary() {
